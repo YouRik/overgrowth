@@ -596,12 +596,20 @@ ENDIF()
 
 IF(APPLE)    
     LINK_DIRECTORIES(
-        ${LIBDIR}/FreeImage/maclib/64
         ${LIBDIR}/freetype-2.4.11/lib/mac64
         ${LIBDIR}/libogg-1.3.3/lib/mac64
         ${LIBDIR}/libvorbis-1.3.6/lib/mac64
         ${LIBDIR}/libtheora-1.1.1/lib/mac64
     )
+    IF(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
+        LINK_DIRECTORIES(
+            ${LIBDIR}/FreeImage/maclib/arm64
+        )
+    ELSE()
+        LINK_DIRECTORIES(
+            ${LIBDIR}/FreeImage/maclib/64
+        )
+    ENDIF()
 
     IF(ENABLE_STEAMWORKS)
         LINK_DIRECTORIES(

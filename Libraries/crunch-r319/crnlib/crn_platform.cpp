@@ -1,6 +1,7 @@
 // File: crn_platform.cpp
 // See Copyright Notice and license at the end of inc/crnlib.h
 #include "crn_core.h"
+#include <csignal>
 
 #if CRNLIB_USE_WIN32_API
 #include "crn_winhdr.h"
